@@ -1,0 +1,77 @@
+/* ===============================
+   REPORT EXPORT DROPDOWN
+   Light Blue – MNC Grade
+================================ */
+
+/* Select input */
+.filters select {
+  appearance: none;
+  cursor: pointer;
+  background: #f8fbff;
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+/* Hover + focus */
+.filters select:hover,
+.filters select:focus {
+  background: #f0f6ff;
+  border-color: #2563eb;
+}
+
+/* Dropdown list */
+.filters select option {
+  background: #eff6ff;
+  color: #1f2937;
+  padding: 12px;
+  font-weight: 600;
+}
+
+/* Hovered / selected option */
+.filters select option:hover,
+.filters select option:checked {
+  background: #bfdbfe;
+  color: #1f2937;
+}
+
+/* Disabled option */
+.filters select option:disabled {
+  color: rgba(31, 41, 55, 0.4);
+}
+
+/* ===============================
+   DARK MODE – REPORT EXPORT DROPDOWN FIX
+   (No light theme impact)
+================================ */
+
+[data-theme="dark"] .filters select {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Hover + focus */
+[data-theme="dark"] .filters select:hover,
+[data-theme="dark"] .filters select:focus {
+  background: #020617;
+  border-color: #6366f1;
+}
+
+/* Dropdown options */
+[data-theme="dark"] .filters select option {
+  background: #020617;
+  color: var(--text-primary);
+}
+
+/* Hovered / selected option */
+[data-theme="dark"] .filters select option:hover,
+[data-theme="dark"] .filters select option:checked {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--text-primary);
+}
+
+/* Disabled option */
+[data-theme="dark"] .filters select option:disabled {
+  color: rgba(248, 250, 252, 0.4);
+}

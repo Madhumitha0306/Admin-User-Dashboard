@@ -1,0 +1,73 @@
+.page-transition {
+  position: relative;
+  min-height: 100vh;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.page-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.page-loading.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.admin-table tbody tr:hover * {
+  transition: all 0.2s ease !important;
+}
+
+[data-theme="dark"] .admin-table tbody tr:hover {
+  box-shadow: 0 4px 20px rgba(79,70,229,0.25) !important;
+}
+
+[data-theme="dark"] .action-btn {
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+[data-theme="dark"] .action-cell {
+  background: inherit !important;
+}
+
+[data-theme="dark"] .ExportCSVButton,
+[data-theme="dark"] .export-csv-btn,
+[data-theme="dark"] .csv-export-button {
+  background: linear-gradient(135deg, var(--button-primary), #7c3aed) !important;
+}
+
+[data-theme="dark"] .ExportCSVButton:hover,
+[data-theme="dark"] .export-csv-btn:hover {
+  background: linear-gradient(135deg, var(--button-hover), #3730a3) !important;
+}

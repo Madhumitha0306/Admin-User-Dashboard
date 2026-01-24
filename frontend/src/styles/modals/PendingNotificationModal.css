@@ -1,0 +1,73 @@
+@import "./ConfirmActionModal.css";
+
+/* ===============================
+   PENDING NOTIFICATION MODAL
+   Light Blue – MNC Grade
+================================ */
+
+.modal-card {
+  text-align: center;
+}
+
+/* Pending count */
+.pending-count {
+  font-size: 36px;
+  font-weight: 800;
+  color: #047857;   /* green remains unchanged */
+  margin: 10px 0 22px;
+}
+
+/* Actions */
+.pending-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* View button */
+.pending-actions button:first-child {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pending-actions button:first-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(16, 185, 129, 0.45);
+}
+
+/* Close button */
+.pending-actions button:last-child {
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pending-actions button:last-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.45);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .pending-actions {
+    flex-direction: column;
+  }
+
+  .pending-actions button {
+    width: 100%;
+  }
+}

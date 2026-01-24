@@ -1,0 +1,138 @@
+.page-header { 
+  padding: 0 0 24px 0;
+  display: flex; 
+  flex-direction: column; 
+  gap: 0;
+}
+
+.page-header h1 { 
+  padding: 0 32px; 
+  font-size: 28px; 
+  font-weight: 700; 
+  margin: 0 0 8px 0;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 0 32px 32px;
+}
+
+/* ==================================================
+   ANALYTICS DASHBOARD – RESPONSIVE CARD LAYOUT
+   (NO CARD STYLE / NO SPACING CHANGES)
+================================================== */
+
+.analytics-dashboard,
+.analytics-cards,
+.stats-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  justify-items: center;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .analytics-dashboard,
+  .analytics-cards,
+  .stats-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .analytics-dashboard,
+  .analytics-cards,
+  .stats-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================================================
+   DARK MODE – CHART VISIBILITY FIX
+================================================== */
+
+[data-theme="dark"] .chart-card,
+[data-theme="dark"] .analytics-card,
+[data-theme="dark"] .chart-container {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+[data-theme="dark"] .chart-card h3,
+[data-theme="dark"] .chart-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] canvas {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .chart-legend,
+[data-theme="dark"] .recharts-legend-item-text,
+[data-theme="dark"] .apexcharts-legend-text {
+  fill: var(--text-secondary) !important;
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .recharts-cartesian-axis-tick-value,
+[data-theme="dark"] .apexcharts-xaxis-label,
+[data-theme="dark"] .apexcharts-yaxis-label {
+  fill: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .recharts-tooltip-wrapper,
+[data-theme="dark"] .apexcharts-tooltip {
+  background: #020617 !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+/* =====================================================
+   ANALYTICS – MOBILE FLOW
+===================================================== */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    height: 260px !important;
+  }
+
+  .recent-submissions {
+    padding: 0 16px 24px;
+  }
+}
+
+/* =====================================================
+   MOBILE CHART TEXT VISIBILITY FIX
+===================================================== */
+@media (max-width: 768px) {
+
+  .chart-card {
+    overflow: visible !important;
+  }
+
+  .recharts-text,
+  .recharts-legend-item-text,
+  .recharts-cartesian-axis-tick-value {
+    font-size: 12px !important;
+    white-space: nowrap !important;
+  }
+
+  .recharts-tooltip-wrapper {
+    max-width: 90vw !important;
+  }
+
+  .chart-container {
+    overflow: visible !important;
+  }
+}

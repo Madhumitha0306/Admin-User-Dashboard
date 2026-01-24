@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import './_variables.css';
+@import './_login.css';
+@import './_buttons.css';
+@import './_table.css';
+@import './_sidebar.css';
+@import './_header.css';
+@import './_cards.css';
+@import './_forms.css';
+@import './_layouts.css';
+@import './_analytics.css';
+@import './_animations.css';
+@import './_reportExport.css';
+@import './report-export-dropdown.css';
+
+/* ===============================
+   GLOBAL RESET
+================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===============================
+   BASE LAYOUT
+================================ */
+
+html,
+body,
+#root {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+}
+
+/* ===============================
+   COMMON HELPERS
+================================ */
+
+.empty-table {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.loading-spinner {
+  padding: 16px 32px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  color: var(--text-secondary);
+}

@@ -1,0 +1,185 @@
+/* ===============================
+   ADMIN SIDEBAR
+   Light Blue – MNC Grade
+================================ */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== Sidebar ===== */
+.admin-sidebar {
+  width: 280px !important;
+  background: linear-gradient(180deg, #eff6ff, #dbeafe) !important;
+  padding: 32px 24px !important;
+  position: fixed !important;
+  height: 100vh !important;
+  z-index: 1000 !important;
+  box-shadow: 4px 0 30px rgba(37, 99, 235, 0.15) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: auto;
+}
+
+/* ===== Header ===== */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.sidebar-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ===== Nav ===== */
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-item {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: transparent;
+  color: #6b7280;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.25s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: linear-gradient(135deg, #93c5fd, #2563eb);
+  color: #0f172a;
+  transform: translateX(4px);
+}
+
+/* ===== Footer ===== */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Logout Button */
+.sidebar-footer .logout-btn {
+  width: 100%;
+  height: 52px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+.sidebar-footer .logout-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-2px);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+  }
+}
+
+/* ==================================================
+   DARK MODE – SIDEBAR COLOR FIX ONLY
+   (NO SPACING / NO LAYOUT CHANGES)
+================================================== */
+
+[data-theme="dark"] .admin-sidebar,
+[data-theme="dark"] .user-sidebar {
+  background: linear-gradient(180deg, #0f172a, #020617) !important;
+  color: #e5e7eb !important;
+}
+
+/* Sidebar title */
+[data-theme="dark"] .admin-sidebar h2,
+[data-theme="dark"] .user-sidebar h2 {
+  color: #f8fafc !important;
+}
+
+/* Sidebar buttons */
+[data-theme="dark"] .admin-sidebar button,
+[data-theme="dark"] .user-sidebar button {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #e5e7eb !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Hover */
+[data-theme="dark"] .admin-sidebar button:hover,
+[data-theme="dark"] .user-sidebar button:hover {
+  background: #6366f1 !important;
+  color: #ffffff !important;
+}
+
+/* Active item */
+[data-theme="dark"] .admin-sidebar button.active,
+[data-theme="dark"] .user-sidebar button.active {
+  background: #4f46e5 !important;
+  color: #ffffff !important;
+}
+
+/* Logout button */
+[data-theme="dark"] .admin-sidebar .logout-btn,
+[data-theme="dark"] .user-sidebar .logout-btn {
+  background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+  color: #f8fafc !important;
+}
+
+/* =====================================================
+   DARK MODE – SIDEBAR LOGOUT BUTTON FIX (FINAL)
+===================================================== */
+
+[data-theme="dark"] .sidebar .logout-btn,
+[data-theme="dark"] .sidebar button.logout-btn {
+  background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(99, 102, 241, 0.45) !important;
+}
+
+[data-theme="dark"] .sidebar .logout-btn:hover,
+[data-theme="dark"] .sidebar button.logout-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 10px 28px rgba(79, 70, 229, 0.6);
+}
+
+/* =====================================================
+   MOBILE SIDEBAR DRAWER
+===================================================== */
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    left: 0;
+    top: 0;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+  }
+}
+
+/* =====================================================
+   MOBILE SIDEBAR – FULL FIT
+===================================================== */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 85vw !important;
+    max-width: 320px;
+  }
+}

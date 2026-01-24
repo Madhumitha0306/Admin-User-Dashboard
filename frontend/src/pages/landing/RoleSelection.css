@@ -1,0 +1,148 @@
+/* ===============================
+   ROLE SELECTION PAGE
+   FINAL TEXT VISIBILITY FIX
+================================ */
+
+/* ===== FORCE VISIBILITY FOR WELCOME TEXT ===== */
+.role-selection-card h1,
+.role-selection-card .welcome-title {
+  color: #1f2937 !important;              /* ✅ solid visible text */
+  background: none !important;            /* ❌ remove gradient bg */
+  -webkit-text-fill-color: #1f2937 !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+
+/* Explicit welcome style */
+.welcome-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Subtitle */
+.role-selection-card p {
+  color: #6b7280;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* ===============================
+   INFO BOX
+================================ */
+
+.role-info-box {
+  margin: 20px 0 28px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: #eff6ff;
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  text-align: center;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.6;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.18);
+}
+
+/* Highlight */
+.role-info-highlight {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #1d4ed8;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+/* ===============================
+   ROLE BUTTONS
+================================ */
+
+.role-selection-card .admin-role {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(37, 99, 235, 0.35) !important;
+  font-weight: 800 !important;
+}
+
+.role-selection-card .user-role {
+  background: linear-gradient(135deg, #93c5fd, #60a5fa) !important;
+  color: #0f172a !important;
+  border: 2px solid rgba(37, 99, 235, 0.35) !important;
+  font-weight: 800 !important;
+}
+
+/* ===============================
+   DARK MODE SAFETY
+================================ */
+
+[data-theme="dark"] .role-selection-card h1,
+[data-theme="dark"] .role-selection-card .welcome-title {
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 480px) {
+  .welcome-title {
+    font-size: 26px;
+  }
+}
+
+/* =====================================================
+   DARK MODE – ROLE SELECTION PAGE FIX
+===================================================== */
+
+[data-theme="dark"] .role-selection-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+[data-theme="dark"] .role-selection-card p {
+  color: var(--text-secondary);
+}
+
+/* ===============================
+   INFO BOX (Dark Mode)
+================================ */
+
+[data-theme="dark"] .role-info-box {
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  color: var(--text-primary);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .role-info-highlight {
+  color: #a5b4fc;
+}
+
+/* ===============================
+   ROLE BUTTONS (Dark Mode)
+================================ */
+
+/* Admin */
+[data-theme="dark"] .role-selection-card .admin-role {
+  background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(99, 102, 241, 0.5) !important;
+}
+
+/* User */
+[data-theme="dark"] .role-selection-card .user-role {
+  background: linear-gradient(135deg, #22d3ee, #06b6d4) !important;
+  color: #020617 !important;
+  border: 1px solid rgba(34, 211, 238, 0.5) !important;
+}
+
+/* Hover polish */
+[data-theme="dark"] .role-selection-card .admin-role:hover,
+[data-theme="dark"] .role-selection-card .user-role:hover {
+  filter: brightness(1.1);
+}

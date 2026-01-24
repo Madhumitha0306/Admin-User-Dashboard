@@ -1,0 +1,83 @@
+@import "./ConfirmActionModal.css";
+
+/* ===============================
+   REJECT REASON MODAL
+   Light Blue – MNC Grade
+================================ */
+
+/* Textarea */
+.modal-card textarea {
+  width: 100%;
+  min-height: 110px;
+  resize: none;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  margin-bottom: 18px;
+  background: #f8fbff;
+  color: var(--text-primary);
+}
+
+.modal-card textarea:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+/* Reject button */
+.modal-actions .btn.danger {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: white;
+}
+
+.modal-actions .btn.danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(239, 68, 68, 0.45);
+}
+
+.modal-actions .btn.danger:disabled {
+  background: #fca5a5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =====================================================
+   DARK MODE – REJECT REASON MODAL FIX
+===================================================== */
+
+/* Textarea */
+[data-theme="dark"] .modal-card textarea {
+  background: #020617;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Placeholder text (if any) */
+[data-theme="dark"] .modal-card textarea::placeholder {
+  color: rgba(203, 213, 245, 0.6);
+}
+
+/* Focus state */
+[data-theme="dark"] .modal-card textarea:focus {
+  border-color: #f87171;
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.35);
+}
+
+/* Danger (Reject) button */
+[data-theme="dark"] .modal-actions .btn.danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #f8fafc;
+}
+
+/* Hover */
+[data-theme="dark"] .modal-actions .btn.danger:hover {
+  box-shadow: 0 14px 34px rgba(239, 68, 68, 0.6);
+}
+
+/* Disabled */
+[data-theme="dark"] .modal-actions .btn.danger:disabled {
+  background: rgba(239, 68, 68, 0.35);
+  color: rgba(248, 250, 252, 0.6);
+}

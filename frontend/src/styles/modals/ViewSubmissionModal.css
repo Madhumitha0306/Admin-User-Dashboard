@@ -1,0 +1,113 @@
+/* =====================================================
+   VIEW SUBMISSION MODAL – DARK MODE VISIBILITY FIX
+   No spacing / layout / logic changes
+===================================================== */
+
+.view-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease;
+  z-index: 1000;
+}
+
+.view-modal {
+  background: var(--card-bg);
+  width: 520px;
+  max-height: 80vh;
+  border-radius: 16px;
+  padding: 20px;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+
+/* Header */
+.view-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.close-btn {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+/* Fields */
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.detail-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.detail-value {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 2px;
+}
+
+/* =====================================================
+   DARK MODE – FORCE HIGH CONTRAST
+===================================================== */
+
+[data-theme="dark"] .view-modal {
+  background: #020617 !important;
+}
+
+[data-theme="dark"] .detail-label {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .detail-value {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .view-modal-header h3 {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .close-btn {
+  color: #e5e7eb !important;
+}
+
+[data-theme="dark"] .detail-row {
+  border-bottom: 1px solid rgba(255,255,255,0.12) !important;
+}
+
+/* Scrollbar (dark) */
+[data-theme="dark"] .view-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+[data-theme="dark"] .view-modal::-webkit-scrollbar-thumb {
+  background: rgba(148,163,184,0.4);
+  border-radius: 6px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); }
+  to { transform: translateY(0); }
+}

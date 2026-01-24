@@ -1,0 +1,94 @@
+/* ===============================
+   REPORT EXPORT PAGE
+   Light Blue – MNC Grade
+================================ */
+
+.report-export-page {
+  padding: 24px;
+  color: var(--text-primary);
+}
+
+/* ===== Filters ===== */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters select,
+.filters button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #f8fbff;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filters select:hover,
+.filters select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+/* 🔵 Export CSV button */
+.filters button {
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+  border: none;
+  color: #ffffff;
+}
+
+.filters button:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-1px);
+}
+
+/* ===== Chart Card ===== */
+.chart-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+/* ===== No Data ===== */
+.no-data-popup {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.15);
+  color: #b91c1c;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .report-export-page {
+    padding: 20px 16px;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filters select,
+  .filters button {
+    width: 100%;
+  }
+}
+
+/* =====================================================
+   REPORT EXPORT – MOBILE FLOW
+===================================================== */
+@media (max-width: 768px) {
+  .chart-card {
+    padding: 16px;
+  }
+}

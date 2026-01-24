@@ -1,0 +1,125 @@
+/* ===============================
+   DASHBOARD CARDS
+   Light + Dark Mode Safe
+================================ */
+
+/* Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+/* ===============================
+   CARD BASE
+================================ */
+
+.stat-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 36px 28px;
+  min-height: 180px;
+
+  /* ✅ CENTER EVERYTHING */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.18);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Hover */
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(37, 99, 235, 0.28);
+}
+
+/* ===============================
+   BLUE LINE — INSIDE CARD
+================================ */
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  /* ✅ INSIDE CARD */
+  height: 6px;
+  background: linear-gradient(90deg, #60a5fa, #2563eb);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* ===============================
+   CARD CONTENT
+================================ */
+
+.stat-card h3,
+.stat-card h4 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+/* Arrow / link */
+.stat-card span,
+.stat-card a {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+/* ===============================
+   DARK MODE
+================================ */
+
+[data-theme="dark"] .stat-card {
+  background: #020617;
+  border-color: #1e293b;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .stat-card::before {
+  background: linear-gradient(90deg, #6366f1, #4f46e5);
+}
+
+[data-theme="dark"] .stat-card h3,
+[data-theme="dark"] .stat-card h4 {
+  color: #f8fafc;
+}
+
+[data-theme="dark"] .stat-card p {
+  color: #cbd5f5;
+}
+
+[data-theme="dark"] .stat-card span,
+[data-theme="dark"] .stat-card a {
+  color: #a5b4fc;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  .stat-card {
+    padding: 28px 20px;
+  }
+}
