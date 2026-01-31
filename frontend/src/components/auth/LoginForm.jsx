@@ -1,55 +1,118 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { login } from "../../services/auth.service";
+import {
+  login,
+  sendOtp,
+  verifyOtp,
+  getCaptcha,
+  verifyCaptcha
+} from "../../services/auth.service";
 import { saveAuth } from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginForm({ selectedRole }) {
   const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [captchaText, setCaptchaText] = useState("");
+  const [captchaInput, setCaptchaInput] = useState("");
+  const [otp, setOtp] = useState("");
+  const [step, setStep] = useState("email");
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  // Load / Refresh captcha
+  const loadCaptcha = async () => {
+    const cap = await getCaptcha(email);
+    setCaptchaText(cap);
+    setCaptchaInput("");
+    setStep("captcha");
+  };
+
+  const handleCaptcha = async () => {
     try {
-      setLoading(true);
+      await verifyCaptcha(email, captchaInput);
+      await sendOtp(email);
+      setStep("otp");
+    } catch {
+      alert("Invalid Captcha");
+    }
+  };
+
+  const handleOtp = async () => {
+    try {
+      await verifyOtp(email, otp);
       const { token, role } = await login(email);
-      
-      // Verify role matches selection
+
       if (role !== selectedRole) {
-        alert(`Access denied. Expected ${selectedRole}, got ${role}`);
+        alert("Role mismatch");
         return;
       }
-      
+
       saveAuth(token, role);
       sessionStorage.removeItem("selectedRole");
-      
       role === "admin" ? navigate("/admin") : navigate("/user");
     } catch {
-      alert("Login failed");
-    } finally {
-      setLoading(false);
+      alert("Invalid OTP");
     }
   };
 
   return (
     <>
       <h2>Login as {selectedRole}</h2>
-      <input
-        type="email"
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        disabled={loading}
-      />
-      <motion.button 
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        onClick={handleLogin} 
-        disabled={loading || !email}
-        className="login-btn"
-      >
-        {loading ? "Logging in..." : `Login as ${selectedRole}`}
-      </motion.button>
+
+      {step === "email" && (
+        <>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <motion.button onClick={loadCaptcha} className="login-btn">
+            Continue
+          </motion.button>
+        </>
+      )}
+
+      {step === "captcha" && (
+        <>
+          <div className="captcha-box">
+            <span className="captcha-code">{captchaText}</span>
+
+            <button
+              type="button"
+              className="captcha-refresh"
+              onClick={loadCaptcha}
+              title="Refresh captcha"
+            >
+              🔄
+            </button>
+
+            <input
+              placeholder="Type captcha"
+              value={captchaInput}
+              onChange={(e) => setCaptchaInput(e.target.value)}
+            />
+          </div>
+
+          <motion.button onClick={handleCaptcha} className="login-btn">
+            Verify Captcha
+          </motion.button>
+        </>
+      )}
+
+      {step === "otp" && (
+        <>
+          <input
+            className="otp-input"
+            placeholder="Enter OTP"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+          />
+
+          <motion.button onClick={handleOtp} className="login-btn">
+            Verify OTP & Login
+          </motion.button>
+        </>
+      )}
     </>
   );
 }

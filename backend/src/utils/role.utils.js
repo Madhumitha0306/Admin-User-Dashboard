@@ -1,6 +1,7 @@
 const ADMIN_EMAILS = [
   "madhumitha@gmail.com",
-  "admin@gmail.com"
+  "admin@gmail.com",
+  "madhumithasankar2006@gmail.com"
 ];
 
 function getUserRole(email) {
