@@ -16,6 +16,7 @@ export default function LoginForm({ selectedRole }) {
   const [captchaInput, setCaptchaInput] = useState("");
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState("email");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   // Load / Refresh captcha
@@ -30,9 +31,20 @@ export default function LoginForm({ selectedRole }) {
     try {
       await verifyCaptcha(email, captchaInput);
       await sendOtp(email);
-      setStep("otp");
-    } catch {
-      alert("Invalid Captcha");
+
+      setMessage("If this email exists, you received an OTP");
+
+      setTimeout(() => {
+        setMessage("");
+        setStep("otp");
+      }, 2000);
+
+    } catch (err) {
+      setMessage("Failed to send OTP ");
+
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
     }
   };
 
@@ -57,6 +69,8 @@ export default function LoginForm({ selectedRole }) {
   return (
     <>
       <h2>Login as {selectedRole}</h2>
+
+      {message && <p className="status-msg">{message}</p>}
 
       {step === "email" && (
         <>

@@ -176,3 +176,21 @@
   font-size: 20px;
 }
 
+.status-msg {
+  margin: 10px 0;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+/* ===============================
+   STATUS MESSAGE (Dark Mode)
+================================ */
+
+[data-theme="dark"] .status-msg {
+  color: #a5b4fc;              /* soft indigo */
+  background: rgba(99, 102, 241, 0.12);
+  padding: 6px 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
